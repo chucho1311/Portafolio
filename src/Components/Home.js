@@ -1,5 +1,5 @@
 import Header from "../Common/header";
-import foto from "../images/Foto.jpg"
+// import foto from "../images/Foto.jpg"
 import react from "../images/reactBackImage.png"
 import reactFavicon from "../images/favicon.ico"
 
