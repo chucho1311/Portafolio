@@ -1,63 +1,232 @@
-.App {
-  text-align: center;
-  background-color: black;
-  height: 100vh;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 .App-header{
-  text-align: center;
-  background-color: black;
+  background-color: rgba(44,44,44,255);
   height: 100vh;
 }
 
 .centrar{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-content: center;
 }
 
 .header{
-  width: 100vw;
   color: whitesmoke;
-  background-color: black;
+}
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.img-foto{
+body {
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(242, 235, 243) 0%,
+    rgb(234, 241, 249) 90.1%
+  );
+} */
+
+/* Main Container */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .profile-container:hover */
+.profile-container {
+  width: 300px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: rgba(223, 214, 214, 0.44) 0px 5px 20px;
+  border-radius: 9px;
+  transition: 1s all ease;
+}
+
+.profile-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 300px;
-  padding: 10px;
-  margin: 5px;
-  border-radius: 20px;
+  height: 100%;
+  /* background: url("./images//Screenshot\ from\ 2023-03-24\ 21-42-59.png") no-repeat center center/cover; */
+  z-index: 1;
+  opacity: 1;
+  transition: all 0.5s ease-in;
 }
 
-label{
+.profile-container:hover:before {
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+/* Profile Card Wrapper */
+.profile-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.profile-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #008587 0%, #1a7c97 100%);
+  transform: skew(30deg) translateX(125%);
+  opacity: 0.9;
+  transition: all 0.6s ease;
+}
+
+.profile-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0.5px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #008587 0%, #1a7c97 100%);
+  transform: skew(30deg) translateX(-125%);
+  opacity: 0.9;
+  transition: all 0.6s ease;
+}
+
+.profile-container:hover .profile-wrapper::after {
+  transform: skew(30deg) translateX(125%);
+  background: linear-gradient(to right, #008587 0%, #1a7c97 100%);
+}
+.profile-container:hover .profile-wrapper::before {
+  transform: skew(30deg) translateX(-125%);
+  background: linear-gradient(to right, #008587 0%, #1a7c97 100%);
+}
+
+/* Profile Card */
+.profile-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.6rem 12px;
+  position: relative;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.profile-container:hover .profile-card {
+  opacity: 1;
+  transition: all 0.6s ease;
+  transition-delay: 0.2s;
+  background-color: rgb(3, 3, 3);
+}
+
+/* Profile Picture */
+.profile-card img {
+  display: block;
+  margin: 0;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 1rem 0;
+  margin-top: -0.05rem;
+  border: 2px solid transparent;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  position: relative;
+}
+
+.profile-card h2 {
+  line-height: 1.2;
+  margin-top: -0.1rem;
+  margin-bottom: 0.2rem;
   color: white;
-  font-size: 40px;
+  font-size: 1.6rem;
+  font-family: "Rubik", sans-serif;
+}
+.profile-card h4 {
+  line-height: 1.5;
+  letter-spacing: 1px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: rgb(199, 191, 191);
 }
 
-.skills{
-  height: 300px;
+.profile-card p {
+  line-height: 1.5;
+  color: #b1acac;
+  font-weight: 400;
+  margin: 12px 0;
+  width: 92%;
+  letter-spacing: 0.2px;
+  font-size: 0.8rem;
 }
 
-.skills > div:nth-child(1){
-  min-height: 100%;
-  background-color: rgba(24,24,24,255);
-}
-.skills > div:nth-child(2){
-  min-height: 100%;
-  background: -webkit-linear-gradient(70deg, #640405 30%, #d20a0c 90%);
-}
-
-.skill-box{
-  height: 200px;
-  max-width: 100px;
-  background-color: #998989;
-  padding: 10px;
-  margin: 20px;
+/* Profile Icons */
+.profile-card .icons {
+  display: flex;
+  color: #c4b9b9;
+  width: 80%;
+  justify-content: space-evenly;
+  font-size: 1.5rem;
+  margin: 4px 0;
 }
 
-.projects{
-  height: 300px;
-  background-color: black;
+.profile-card .icons i {
+  transition: 0.2s;
+}
 
+.profile-card .icons i:hover {
+  transform: translateY(-5px);
+  color: #000;
+}
+
+/* Profile Button */
+.profile-card a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  padding: 8px 20px;
+  margin-top: 1rem;
+  background: #5b6072;
+  border-radius: 50px;
+  transition: 0.2s;
+}
+
+.profile-card a:hover {
+  box-shadow: rgba(0, 0, 0, 0.177) 0px 5px 15px;
+  background: #4a6ae8;
+}
+
+.shape-1 {
+  position: absolute;
+  z-index: 1;
+  opacity: 0.3;
+  animation: heroDecoAnim 3s linear infinite alternate;
+  top: 5%;
+  right: 78%;
+}
+
+@keyframes heroDecoAnim {
+  0% {
+    transform: translateY(40px) rotate(0);
+  }
+  100% {
+    transform: translateY(0) rotate(0.4turn);
+  }
 }
