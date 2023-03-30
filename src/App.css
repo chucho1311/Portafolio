@@ -4,7 +4,7 @@
 
 .App-header{
   background-color: rgba(44,44,44,255);
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .centrar{
@@ -137,10 +137,10 @@ body {
 .profile-card img {
   display: block;
   margin: 0;
-  width: 100px;
+  width: 200px;
   height: 100px;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 10%;
   margin: 1rem 0;
   margin-top: -0.05rem;
   border: 2px solid transparent;
@@ -206,6 +206,7 @@ body {
   background: #5b6072;
   border-radius: 50px;
   transition: 0.2s;
+  z-index: 10;
 }
 
 .profile-card a:hover {
@@ -229,4 +230,35 @@ body {
   100% {
     transform: translateY(0) rotate(0.4turn);
   }
+}
+
+
+.effect-container {
+  /* width: 100%;
+  height: 100%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.6rem 12px;
+  position: relative;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.effect-container img {
+  display: block;
+  margin: 0;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 1rem 0;
+  margin-top: -0.05rem;
+  border: 2px solid transparent;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  position: relative;
+  animation: heroDecoAnim 3s linear infinite alternate;
 }
